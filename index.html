@@ -1,0 +1,48 @@
+
+
+<!doctype html>
+<html lang="en" ng-app="jdProject">
+
+<head>
+    
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>angular js 实现JD的一个列表页面</title>
+    <link rel="stylesheet" href="js/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/bower_components/jquery/dist/jquery.js"></script>
+    <script src="js/bower_components/bower-angularjs/angular.js"></script>
+
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+    <div class="container p0" ng-controller="productLisCtrl">
+        <div class="row search m0">
+            <form action="#">
+                <div class="form-group">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <input type="text" class="form-control " id="query" placeholder="搜索" ng-model="searchInfo">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <ul class="list">
+                <li ng-repeat="product in products | filter:searchInfo">
+                    <a href="{{product.URL}}">
+                        <div class="pro-img col-xs-4">
+                            <img src="{{product.imgUrl}}" alt="{{product.imgAlt}}">
+                        </div>
+                        <div class="pro-info col-xs-8">
+                            <p class="info-text">{{product.infoText}}</p>
+                            <p class="info-pri">{{product.infoPri}}</p>
+                            <p class="info-cmt">{{product.infoCmt}}</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+</body>
+
+</html>
